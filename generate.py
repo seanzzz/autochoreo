@@ -74,7 +74,8 @@ num_frames = 7200
 
 dance_data = np.load("dance.npy")
 music_data = np.load("mfcc_only_7200.npy")
-
+music_data_rihanna = np.load("mfcc_only_7200_rihanna.npy")
+music_data_full = np.load("mfcc_7200.npy")
 
 batch_size = 120
 steps = 120
@@ -85,22 +86,57 @@ epochs = 3000
 # output = generate(model, dance_data, music_data, steps=steps, offset=steps, epochs=6800)
 # np.save(exp_name + "_output_complete_long", output)
 
-# exp_name = "model-43in30out256cell2layer120step-gru"
+# exp_name = "model-43in30out181cell3layer120step0.50-lstm"
 # model = load_model(exp_name)
 # output = generate(model, dance_data, music_data, steps=steps, offset=steps, epochs=6800)
 # np.save(exp_name + "_output_complete_long", output)
 
-exp_name = "model-43in30out-512cells1layers120steps"
+exp_name = "model-43in30out181cell3layer120step0.20-lstm-ns"
 model = load_model(exp_name)
-output = generate(model, dance_data, music_data, steps=steps, offset=steps, epochs=6800)
+output = generate(model, dance_data, music_data_rihanna, steps=120, batch_size=1, offset=120, epochs=6800)
 np.save(exp_name + "_output_complete_long", output)
 
-exp_name = "model-43in30out-181cells3layers120steps"
-model = load_model(exp_name)
-output = generate(model, dance_data, music_data, steps=steps, offset=steps, epochs=6800)
-np.save(exp_name + "_output_complete_long", output)
 
-exp_name = "model-43in30out128cell5layer120step-lstm"
-model = load_model(exp_name)
-output = generate(model, dance_data, music_data, steps=steps, offset=steps, epochs=6800)
-np.save(exp_name + "_output_complete_long", output)
+# exp_name = "model-43in30out181cell3layer60step120batch0.20-lstm-ns"
+# model = load_model(exp_name)
+# output = generate(model, dance_data, music_data, steps=60, batch_size=1, offset=60, epochs=6800)
+# np.save(exp_name + "_output_complete_long", output)
+
+
+# exp_name = "model-43in30out181cell3layer30step120batch0.20-lstm-ns"
+# model = load_model(exp_name)
+# output = generate(model, dance_data, music_data, steps=30, batch_size=1, offset=30, epochs=6800)
+# np.save(exp_name + "_output_complete_long", output)
+
+
+# exp_name = "model-43in30out256cell2layer240step120batch0.00-lstm-ns"
+# model = load_model(exp_name)
+# output = generate(model, dance_data, music_data, steps=240, batch_size=1, offset=240, epochs=6800)
+# np.save(exp_name + "_output_complete_long", output)
+
+# exp_name = "model-43in30out256cell2layer60step120batch0.00-lstm-ns"
+# model = load_model(exp_name)
+# output = generate(model, dance_data, music_data, steps=60, batch_size=1, offset=60, epochs=6800)
+# np.save(exp_name + "_output_complete_long", output)
+
+# exp_name = "model-43in30out256cell2layer30step120batch0.00-lstm-ns"
+# model = load_model(exp_name)
+# output = generate(model, dance_data, music_data, steps=30, batch_size=1, offset=30, epochs=6800)
+# np.save(exp_name + "_output_complete_long", output)
+
+
+# exp_name = "model-43in30out181cell3layer60step0.20-lstm"
+# model = load_model(exp_name)
+# output = generate(model, dance_data, music_data, steps=60, batch_size=60, offset=60, epochs=6800)
+# np.save(exp_name + "_output_complete_long", output)
+
+
+# exp_name = "model-43in30out181cell3layer240step0.20-lstm"
+# model = load_model(exp_name)
+# output = generate(model, dance_data, music_data, steps=240, batch_size=240, offset=240, epochs=6800)
+# np.save(exp_name + "_output_complete_long", output)
+
+# exp_name = "model-43in30out128cell5layer120step-lstm"
+# model = load_model(exp_name)
+# output = generate(model, dance_data, music_data, steps=steps, offset=steps, epochs=6800)
+# np.save(exp_name + "_output_complete_long", output)
